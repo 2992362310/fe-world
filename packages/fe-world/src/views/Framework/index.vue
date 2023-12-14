@@ -1,15 +1,19 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, onBeforeMount, computed } from 'vue'
 import type { BaseItem, ListItem } from './type'
 import baseData from './data/base.json'
 
 const curItem = ref<BaseItem>(baseData[0])
 const list = ref<ListItem[]>([])
 
+onBeforeMount(() => {
+  setListAsync()
+})
+
 const setListAsync = async () => {
   const dict: { [key: number]: string } = {
-    // 1: 'vue',
-    // 2: 'react'
+    1: 'vue',
+    2: 'react'
   }
   if (!dict[curItem.value.id]) {
     list.value = []
@@ -23,6 +27,10 @@ const handleClick = (item: BaseItem) => {
   curItem.value = item
   setListAsync()
 }
+
+const show = computed(() => {
+  return list.value.filter((val) => val.level === 2).length
+})
 </script>
 
 <template>
@@ -39,14 +47,26 @@ const handleClick = (item: BaseItem) => {
       </li>
     </ul>
     <main class="pl-4 flex-1 border">
-      <h1>{{ curItem.name }}</h1>
-      <p>{{ curItem.description }}</p>
-      <ul>
-        <li v-for="item in list" :key="item.id">
-          <img :src="item.icon" alt="" srcset="" />
-          <a :href="item.web_Url" target="_blank">{{ item.name }}</a>
-        </li>
-      </ul>
+      <div>
+        <h1>{{ curItem.name }}</h1>
+        <p>{{ curItem.description }}</p>
+        <ul>
+          <li v-for="item in list.filter((val) => val.level === 1)" :key="item.name">
+            <img :src="item.icon" alt="" srcset="" />
+            <a :href="item.web_Url" target="_blank">{{ item.name }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div v-show="show">
+        <h1>工具</h1>
+        <ul>
+          <li v-for="item in list.filter((val) => val.level === 2)" :key="item.name">
+            <img :src="item.icon" alt="" srcset="" />
+            <a :href="item.web_Url" target="_blank">{{ item.name }}</a>
+          </li>
+        </ul>
+      </div>
     </main>
   </section>
 </template>

@@ -5,7 +5,6 @@ export interface BaseItem {
 }
 
 export interface ListItem {
-  id: number
   tag: string
   icon: string
   level: number

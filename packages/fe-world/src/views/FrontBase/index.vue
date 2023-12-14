@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import { ref, onMounted, computed } from 'vue'
+import { ref, onBeforeMount, computed } from 'vue'
 import type { BaseItem, ListItem } from './type'
 import baseData from './data/base.json'
 
 const curItem = ref<BaseItem>(baseData[0])
 const list = ref<ListItem[]>([])
 
-onMounted(() => {
+onBeforeMount(() => {
   setListAsync()
 })
 

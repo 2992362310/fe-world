@@ -51,7 +51,7 @@ const navs = [
     </nav>
 
     <nav>
-      <a href="/gitee" target="_blank">Gitee</a>
+      <a href="https://gitee.com/youxi2014/fe-world.git" target="_blank">Gitee</a>
       <a href="/github" target="_blank">GitHub</a>
     </nav>
   </header>

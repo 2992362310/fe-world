@@ -1,0 +1,90 @@
+[
+  {
+    "tag": "framework",
+    "icon": "",
+    "level": 1,
+    "name": "react",
+    "web_Url": "https://reactjs.org/",
+    "git_url": ""
+  },
+  {
+    "tag": "framework",
+    "icon": "",
+    "level": 1,
+    "name": "create-react-app",
+    "web_Url": "https://create-react-app.bootcss.com/",
+    "git_url": ""
+  },
+  {
+    "tag": "framework",
+    "icon": "",
+    "level": 1,
+    "name": "React 开发者工具",
+    "web_Url": "https://zh-hans.react.dev/learn/react-developer-tools",
+    "git_url": ""
+  },
+  {
+    "tag": "framework",
+    "icon": "",
+    "level": 1,
+    "name": "ES7+ React/Redux/React-Native snippets",
+    "web_Url": "https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets",
+    "git_url": ""
+  },
+  {
+    "tag": "framework",
+    "icon": "",
+    "level": 1,
+    "name": "react-router",
+    "web_Url": "https://reactrouter.com/en/main",
+    "git_url": ""
+  },
+  {
+    "tag": "framework",
+    "icon": "",
+    "level": 1,
+    "name": "react-redux",
+    "web_Url": "https://react-redux.js.org/",
+    "git_url": ""
+  },
+  {
+    "tag": "framework",
+    "icon": "",
+    "level": 1,
+    "name": "redux-toolkit",
+    "web_Url": "https://redux-toolkit.js.org/",
+    "git_url": ""
+  },
+  {
+    "tag": "framework",
+    "icon": "",
+    "level": 1,
+    "name": "redux-saga",
+    "web_Url": "https://redux-saga-in-chinese.js.org/index.html",
+    "git_url": ""
+  },
+  {
+    "tag": "framework",
+    "icon": "",
+    "level": 1,
+    "name": "redux-thunks",
+    "web_Url": "https://redux.js.org/usage/writing-logic-thunks",
+    "git_url": ""
+  },
+  {
+    "tag": "framework",
+    "icon": "",
+    "level": 2,
+    "name": "ant-design",
+    "web_Url": "https://ant-design.antgroup.com/index-cn",
+    "git_url": ""
+  },
+  {
+    "tag": "framework",
+    "icon": "",
+    "level": 2,
+    "name": "tdesign",
+    "web_Url": "https://tdesign.tencent.com/",
+    "git_url": ""
+  }
+]
