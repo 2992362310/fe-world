@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "tag": "Javascript",
+    "icon": "",
+    "level": 1,
+    "name": "mdn web docs",
+    "web_Url": "https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript",
+    "git_url": "git"
+  },
+  {
+    "id": 2,
+    "tag": "Javascript",
+    "icon": "",
+    "level": 1,
+    "name": "w3school",
+    "web_Url": "https://www.w3school.com.cn/js/index.asp",
+    "git_url": "git"
+  },
+  {
+    "id": 3,
+    "tag": "Javascript",
+    "icon": "",
+    "level": 1,
+    "name": "菜鸟教程(runoob)",
+    "web_Url": "https://www.runoob.com/js/js-tutorial.html",
+    "git_url": "git"
+  },
+  {
+    "id": 4,
+    "tag": "Javascript",
+    "icon": "",
+    "level": 1,
+    "name": "javascript.info",
+    "web_Url": "https://javascript.info/",
+    "git_url": "git"
+  },
+  {
+    "id": 5,
+    "tag": "Javascript",
+    "icon": "",
+    "level": 2,
+    "name": "现代 JavaScript 教程",
+    "web_Url": "https://zh.javascript.info/",
+    "git_url": "git"
+  },
+  {
+    "id": 6,
+    "tag": "Javascript",
+    "icon": "",
+    "level": 2,
+    "name": "ES6 教程",
+    "web_Url": "https://es6.ruanyifeng.com/",
+    "git_url": "git"
+  }
+]

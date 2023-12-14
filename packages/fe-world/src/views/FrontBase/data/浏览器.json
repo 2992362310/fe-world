@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "tag": "谷歌浏览器",
+    "icon": "",
+    "level": 1,
+    "name": "mdn web docs",
+    "web_Url": "https://chrome.xahuapu.net/",
+    "git_url": ""
+  },
+  {
+    "id": 2,
+    "tag": "浏览器",
+    "icon": "",
+    "level": 1,
+    "name": "msedge浏览器",
+    "web_Url": "https://www.microsoft.com/zh-cn/edge/download?form=MA13FJ",
+    "git_url": ""
+  },
+  {
+    "id": 3,
+    "tag": "浏览器",
+    "icon": "",
+    "level": 1,
+    "name": "火狐浏览器",
+    "web_Url": "https://www.firefox.com.cn/download/",
+    "git_url": ""
+  }
+]

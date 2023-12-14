@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "vue",
+    "description": "Vue (发音为 /vjuː/，类似 view) 是一款用于构建用户界面的 JavaScript 框架。它基于标准 HTML、CSS 和 JavaScript 构建，并提供了一套声明式的、组件化的编程模型，帮助你高效地开发用户界面。无论是简单还是复杂的界面，Vue 都可以胜任。"
+  },
+  {
+    "id": 2,
+    "name": "react",
+    "description": "React是一个用于构建用户界面的开源JavaScript库。它由Facebook开发，被广泛用于开发单页面应用程序（SPAs）。React通过将用户界面拆分为组件的方式来构建复杂的UI，这些组件是一个可重用的代码块。React还使用了虚拟DOM的概念，以提高性能和渲染速度。React还提供了一种声明性的方式来描述用户界面，使其更容易维护和理解。React还可以与其他库和框架一起使用，例如React Router和React Redux。"
+  },
+  {
+    "id": 3,
+    "name": "angular",
+    "description": "Angular是一个由Google开发的开源框架，用于构建单页面应用程序（SPA）。它提供了一系列的工具和组件，用于构建动态的、交互式的Web应用程序。Angular使用TypeScript语言编写，可以提供更好的类型检查和开发体验。它还使用了模块化的设计，使得应用程序更容易维护和扩展。Angular还提供了依赖注入（DI）机制，用于管理应用程序中的依赖关系。"
+  },
+  {
+    "id": 4,
+    "name": "svelte",
+    "description": "Svelte是一个前端框架，用于构建高性能的Web应用程序。它通过将组件化的视图和优化的编译器结合在一起，可以在初始加载时将应用程序渲染为原生的DOM元素，然后在运行时根据状态变化更新视图。这使得Svelte应用程序具有更快的加载速度和更好的性能。Svelte还具有跨平台的潜力，可以用于构建移动应用程序和桌面应用程序。"
+  },
+  {
+    "id": 5,
+    "name": "preact",
+    "description": "Preact是一个轻量级的JavaScript库，用于构建用户界面。它是一个React的实现，可以在不牺牲功能的情况下提供更快的渲染和更少的内存占用。Preact具有与React类似的概念和API，但它的核心库比React小得多。它还提供了Preact X，这是一个用于构建高性能Web应用程序的工具和库的集合。Preact可以与其他库和框架一起使用，例如Preact Router和styled-components。"
+  },
+  {
+    "id": 6,
+    "name": "lit-element",
+    "description": "LitElement是一个用于构建Web组件的框架。它建立在Lit-html库之上，提供了一种声明式的方式来定义Web组件的UI。LitElement具有简单的API和良好的性能，并且可以与任何现代浏览器一起使用。它可以用于构建自定义元素、小部件和应用程序组件。LitElement还支持Shadow DOM和CSS样式模块化。"
+  }
+]

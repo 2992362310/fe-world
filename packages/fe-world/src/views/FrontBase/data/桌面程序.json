@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "tag": "桌面程序",
+    "icon": "",
+    "name": "Electron",
+    "level": 1,
+    "web_Url": "https://www.electronjs.org/zh/docs/latest/",
+    "git_url": "git"
+  },
+  {
+    "id": 2,
+    "tag": "桌面程序",
+    "icon": "",
+    "name": "tauri",
+    "level": 1,
+    "web_Url": "https://tauri.app/zh-cn/",
+    "git_url": "git"
+  },
+  {
+    "id": 3,
+    "tag": "桌面程序",
+    "icon": "",
+    "name": "wails",
+    "level": 1,
+    "web_Url": "https://wails.io/zh-Hans/",
+    "git_url": "git"
+  },
+  {
+    "id": 4,
+    "tag": "桌面程序",
+    "icon": "",
+    "level": 1,
+    "name": "flutter",
+    "web_Url": "https://flutter.dev/multi-platform/desktop",
+    "git_url": "git"
+  }
+]
