@@ -21,12 +21,16 @@ const navs = [
     path: '/job'
   },
   {
-    name: '前端面试',
-    path: '/interview'
+    name: '前端扩展',
+    path: '/extend'
   },
   {
     name: 'VScode',
     path: '/vscode'
+  },
+  {
+    name: '前端面试',
+    path: '/interview'
   },
   {
     name: '关于前端开发',

@@ -29,6 +29,11 @@ const router = createRouter({
       component: () => import('@/views/FrontJob/index.vue')
     },
     {
+      path: '/extend',
+      name: 'front-extend',
+      component: () => import('@/views/FrontExtend/index.vue')
+    },
+    {
       path: '/interview',
       name: 'front-interview',
       component: () => import('@/views/FrontInterview/index.vue')

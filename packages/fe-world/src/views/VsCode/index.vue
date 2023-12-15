@@ -1,3 +1,23 @@
 <template>
-  <div>VsCode</div>
+  <section>
+    <div>
+      <h1>快捷使用</h1>
+      <ul>
+        <li>快捷键</li>
+        <li>主题</li>
+        <li>项目管理</li>
+        <li>远程仓库</li>
+        <li>AI代码助手</li>
+      </ul>
+    </div>
+
+    <div>
+      <h1>常用插件</h1>
+      <ul>
+        <li>vue\react\eslint\prettier\stylelint\html\css</li>
+        <li>预览</li>
+        <li>git</li>
+      </ul>
+    </div>
+  </section>
 </template>
