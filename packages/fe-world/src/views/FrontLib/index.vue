@@ -1,15 +1,22 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, onBeforeMount } from 'vue'
 import type { BaseItem, ListItem } from './type'
 import baseData from './data/base.json'
 
 const curItem = ref<BaseItem>(baseData[0])
 const list = ref<ListItem[]>([])
 
+onBeforeMount(() => {
+  setListAsync()
+})
+
 const setListAsync = async () => {
   const dict: { [key: number]: string } = {
-    // 1: 'vue',
-    // 2: 'react'
+    1: 'ui',
+    2: 'charts',
+    3: 'animation',
+    4: 'map',
+    5: 'doc'
   }
   if (!dict[curItem.value.id]) {
     list.value = []

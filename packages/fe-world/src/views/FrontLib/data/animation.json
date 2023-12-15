@@ -1,0 +1,37 @@
+[
+  {
+    "tag": "animation",
+    "icon": "",
+    "name": "wowjs",
+    "web_Url": "https://wowjs.uk/",
+    "git_url": ""
+  },
+  {
+    "tag": "animation",
+    "icon": "",
+    "name": "anime",
+    "web_Url": "https://anime.js.cn/",
+    "git_url": ""
+  },
+  {
+    "tag": "animation",
+    "icon": "",
+    "name": "typed.js",
+    "web_Url": "https://www.npmjs.com/package/typed.js/v/2.0.12",
+    "git_url": ""
+  },
+  {
+    "tag": "animation",
+    "icon": "",
+    "name": "gsap",
+    "web_Url": "https://greensock.com/docs/v3/Easing",
+    "git_url": ""
+  },
+  {
+    "tag": "animation",
+    "icon": "",
+    "name": "React Spring",
+    "web_Url": "https://react-spring.dev/",
+    "git_url": ""
+  }
+]
