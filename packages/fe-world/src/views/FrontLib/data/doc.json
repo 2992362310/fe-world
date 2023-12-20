@@ -33,5 +33,40 @@
     "name": "x-sheet",
     "web_Url": "https://gitee.com/eigi/x-sheet",
     "git_url": ""
+  },
+  {
+    "tag": "excel",
+    "icon": "",
+    "name": "excalidraw",
+    "web_Url": "https://excalidraw.com/",
+    "git_url": ""
+  },
+  {
+    "tag": "excel",
+    "icon": "",
+    "name": "handraw",
+    "web_Url": "https://handraw.top/",
+    "git_url": ""
+  },
+  {
+    "tag": "excel",
+    "icon": "",
+    "name": "exceljs",
+    "web_Url": "https://github.com/exceljs/exceljs",
+    "git_url": ""
+  },
+  {
+    "tag": "excel",
+    "icon": "",
+    "name": "umijs",
+    "web_Url": "https://umijs.org/",
+    "git_url": ""
+  },
+  {
+    "tag": "excel",
+    "icon": "",
+    "name": "docusaurus",
+    "web_Url": "https://docusaurus.io/zh-CN/",
+    "git_url": ""
   }
 ]

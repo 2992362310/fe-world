@@ -70,5 +70,13 @@
     "name": "awesome-vue",
     "web_Url": "https://awesome-vue.js.org/",
     "git_url": ""
+  },
+  {
+    "tag": "framework",
+    "icon": "",
+    "level": 2,
+    "name": "Vue3 One Piece",
+    "web_Url": "https://vue3js.cn/",
+    "git_url": ""
   }
 ]
