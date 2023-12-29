@@ -1,85 +1,96 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
+
+const route = useRoute()
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <section class="app-wrap">
+    <header>
+      <div class="logo">
+        <span>媒体播放器</span>
+      </div>
 
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink :class="{ actived: route.path === '/' }" to="/">首页</RouterLink>
+        <RouterLink :class="{ actived: route.path === '/audio' }" to="/audio">音乐空间</RouterLink>
+        <RouterLink :class="{ actived: route.path === '/video' }" to="/video">视频空间</RouterLink>
+        <RouterLink :class="{ actived: route.path === '/ai' }" to="/ai">AI空间</RouterLink>
       </nav>
-    </div>
-  </header>
 
-  <RouterView />
+      <div class="info-wrap">
+        <span class="theme"> 主题设置 </span>
+        <span class="user">用户</span>
+      </div>
+    </header>
+
+    <main>
+      <RouterView />
+    </main>
+  </section>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
+<style lang="less" scoped>
+.app-wrap {
+  height: 100%;
+  @headerHeight: 80px;
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
   header {
+    padding: 0 20px;
+    height: @headerHeight;
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    align-items: center;
+    justify-content: space-between;
+    background: var(--h-bg);
+    border-radius: 10px;
+
+    .logo {
+      font-size: 2rem;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      a {
+        text-decoration: none;
+        width: 190px;
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+        font-size: 1.2rem;
+        background: var(--h-nav-bg);
+        border: 1px solid var(--h-nv-border);
+        border-radius: 10px;
+      }
+
+      .actived {
+        background: var(--h-nav-actived);
+      }
+    }
+
+    .info-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .theme {
+        cursor: pointer;
+      }
+
+      .user {
+        width: 2rem;
+        height: 2rem;
+        background: #fff;
+        border: 1px solid pink;
+        border-radius: 50%;
+      }
+    }
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
+  main {
+    height: calc(100% - @headerHeight);
   }
 }
 </style>

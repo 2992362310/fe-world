@@ -1,0 +1,7 @@
+:root {
+  --app-bg: rgba(228, 185, 185, 0.8);
+  --h-bg: rgba(208, 123, 123, 0.7);
+  --h-nav-bg: rgba(211, 173, 173, 0.3);
+  --h-nav-actived: rgba(211, 173, 173, 1);
+  --h-nav-border: #797979;
+}
