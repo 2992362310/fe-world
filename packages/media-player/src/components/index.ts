@@ -1,7 +1,11 @@
-import SvgIcon from './SvgIcon.vue'
 import type { App, Component } from 'vue'
+import SvgIcon from './SvgIcon.vue'
+import ControlSlider from './ControlSlider.vue'
 
-const components: { [name: string]: Component } = { SvgIcon }
+const components: { [name: string]: Component } = {
+  SvgIcon,
+  ControlSlider
+}
 
 export default {
   install(app: App) {

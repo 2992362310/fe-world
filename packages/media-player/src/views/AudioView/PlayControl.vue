@@ -1,20 +1,83 @@
-<!-- <script lang="ts" setup>
+<script lang="ts" setup>
+import { onBeforeUnmount, onMounted, ref } from 'vue'
+import mp3 from './audio/小酒窝.mp3'
 
-</script> -->
+const audioRef = ref()
+const isPlaying = ref(false)
+const total = ref(0)
+const currentTime = ref(0)
+const curSliderEvent = ref('up')
+
+const handlePlay = () => {
+  if (audioRef.value) {
+    if (isPlaying.value) {
+      audioRef.value.pause()
+    } else {
+      audioRef.value.play()
+    }
+
+    isPlaying.value = !isPlaying.value
+
+    total.value = Math.floor(audioRef.value?.duration)
+    currentTime.value = Math.floor(audioRef.value?.currentTime)
+  }
+}
+
+const handleChange = ({ value, eventType }: { value: number; eventType: string }) => {
+  curSliderEvent.value = eventType
+  currentTime.value = value
+
+  if (eventType === 'up') {
+    audioRef.value.currentTime = value
+    audioRef.value.play()
+    isPlaying.value = true
+  }
+}
+
+const onAudioTimeUpdate = () => {
+  if (curSliderEvent.value === 'up') {
+    currentTime.value = Math.floor(audioRef.value?.currentTime)
+  }
+
+  if (audioRef.value?.currentTime === audioRef.value?.duration) {
+    audioRef.value.currentTime = 0
+    audioRef.value.play()
+  }
+}
+
+const changeVolume = (event: WheelEvent) => {
+  // 获取滚轮的变化值
+  const deltaY = -event.deltaY
+  // 设置音量
+  if (audioRef.value) {
+    if (deltaY >= 0) {
+      audioRef.value.volume = Math.min(audioRef.value.volume + 0.1, 1)
+    } else {
+      audioRef.value.volume = Math.max(audioRef.value.volume - 0.1, 0)
+    }
+  }
+}
+
+onMounted(() => {
+  audioRef.value?.addEventListener('timeupdate', onAudioTimeUpdate)
+  document.addEventListener('wheel', changeVolume)
+})
+
+onBeforeUnmount(() => {
+  audioRef.value?.removeEventListener('timeupdate', onAudioTimeUpdate)
+  document.removeEventListener('wheel', changeVolume)
+})
+</script>
 
 <template>
   <section class="play-control-wrap">
+    <audio :src="mp3" ref="audioRef"></audio>
     <div class="play-btn-wrap">
       <SvgIcon name="left-circle" size="24" />
-      <SvgIcon name="play-circle" size="24" />
+      <SvgIcon :name="isPlaying ? 'pause-circle' : 'play-circle'" size="24" @click="handlePlay" />
       <SvgIcon name="right-circle" size="24" />
     </div>
-    <div class="process-wrap">
-      <div class="process">
-        <div :style="{ width: '75%' }"></div>
-      </div>
-      <div>03:00/04:00</div>
-    </div>
+    <ControlSlider :total="total" :current="currentTime" @change="handleChange" />
     <div class="play-btn-wrap">
       <SvgIcon name="volume" size="24" />
       <SvgIcon name="resume" size="28" />
