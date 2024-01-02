@@ -2,12 +2,22 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import mp3 from './audio/小酒窝.mp3'
 
+const MODE_DIC: {
+  [key: string]: string
+} = {
+  order: 'play-order', // 顺序播放
+  one: 'loop-one', // 单曲循环
+  loop: 'loop-list', // 列表循环
+  random: 'play-random' // 随机播放
+}
+
 const audioRef = ref()
 const isPlaying = ref(false)
 const total = ref(0)
 const currentTime = ref(0)
 const curSliderEvent = ref('up')
 const curVolume = ref(20)
+const playMode = ref('order')
 
 const handlePlay = () => {
   if (audioRef.value) {
@@ -47,6 +57,19 @@ const handleChange2 = (value: number) => {
   }
 }
 
+// 切换播放模式
+const handleClick1 = () => {
+  const keys = Object.keys(MODE_DIC)
+  const index = keys.indexOf(playMode.value)
+  if (index < keys.length - 1) {
+    playMode.value = keys[index + 1]
+  } else {
+    playMode.value = keys[0]
+  }
+
+  console.log(playMode.value)
+}
+
 const onAudioTimeUpdate = () => {
   if (curSliderEvent.value === 'up') {
     currentTime.value = Math.floor(audioRef.value?.currentTime)
@@ -78,8 +101,8 @@ onBeforeUnmount(() => {
     <ProcessSlider :total="total" :current="currentTime" @change="handleChange1" />
     <div class="play-btn-wrap">
       <VolumeSlider :current="curVolume" @change="handleChange2" />
-      <SvgIcon name="resume" size="28" />
-      <SvgIcon name="music-list" size="32" />
+      <SvgIcon :name="MODE_DIC[playMode]" size="24" @click="handleClick1" />
+      <SvgIcon name="music-list" size="24" />
     </div>
   </section>
 </template>
