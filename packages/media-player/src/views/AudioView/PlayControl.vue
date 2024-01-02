@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-import { onBeforeUnmount, onMounted, ref } from 'vue'
-import mp3 from './audio/小酒窝.mp3'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import mp3 from '@/assets/audio/难念的经.mp3'
+import { useAudioStore } from '@/stores/audio'
 
 const MODE_DIC: {
   [key: string]: string
@@ -11,13 +12,22 @@ const MODE_DIC: {
   random: 'play-random' // 随机播放
 }
 
+const audioStore = useAudioStore()
+const { setAudioRef, setCurrentTime, setPlayState } = audioStore
+const currentTime = computed(() => audioStore.currentTime)
+const isPlaying = computed(() => audioStore.isPlaying)
+
 const audioRef = ref()
-const isPlaying = ref(false)
-const total = ref(0)
-const currentTime = ref(0)
-const curSliderEvent = ref('up')
-const curVolume = ref(20)
-const playMode = ref('order')
+// const isPlaying = ref(false) // 是否正在播放
+const total = ref(0) // 音频总时长
+// const currentTime = ref(0) // 当前播放时长
+const curSliderEvent = ref('up') // 播放控制条鼠标事件
+const curVolume = ref(20) // 当前音频音量
+const playMode = ref('order') // 当前播放模式
+
+onMounted(() => {
+  setAudioRef(audioRef.value)
+})
 
 const handlePlay = () => {
   if (audioRef.value) {
@@ -27,24 +37,28 @@ const handlePlay = () => {
       audioRef.value.play()
     }
 
-    isPlaying.value = !isPlaying.value
+    // isPlaying.value = !isPlaying.value
 
-    total.value = Math.floor(audioRef.value.duration)
-    currentTime.value = Math.floor(audioRef.value.currentTime)
+    setPlayState(!isPlaying.value)
+
+    total.value = audioRef.value.duration
     curVolume.value = audioRef.value.volume * 100
-    console.log(curVolume.value)
+
+    const curTime = audioRef.value.currentTime
+    setCurrentTime(curTime)
   }
 }
 
 // 改变进度
 const handleChange1 = ({ value, eventType }: { value: number; eventType: string }) => {
   curSliderEvent.value = eventType
-  currentTime.value = value
+  setCurrentTime(value)
 
   if (eventType === 'up') {
     audioRef.value.currentTime = value
     audioRef.value.play()
-    isPlaying.value = true
+
+    setPlayState(true)
   }
 }
 
@@ -66,18 +80,19 @@ const handleClick1 = () => {
   } else {
     playMode.value = keys[0]
   }
-
-  console.log(playMode.value)
 }
 
 const onAudioTimeUpdate = () => {
   if (curSliderEvent.value === 'up') {
-    currentTime.value = Math.floor(audioRef.value?.currentTime)
+    const curTime = audioRef.value?.currentTime
+    setCurrentTime(curTime)
   }
 
+  // 播放结束，从头开始
   if (audioRef.value?.currentTime === audioRef.value?.duration) {
-    audioRef.value.currentTime = 0
+    // audioRef.value.currentTime = 0
     audioRef.value.play()
+    setCurrentTime(0)
   }
 }
 

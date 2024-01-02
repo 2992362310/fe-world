@@ -22,7 +22,9 @@ const moveSliderBar = (e: MouseEvent, eventType: 'move' | 'down' | 'up') => {
     const percent = offsetX / width
     const value = Math.floor(props.total * percent)
 
-    emits('change', { eventType, value })
+    if (props.total > 0) {
+      emits('change', { eventType, value })
+    }
   }
 }
 
@@ -46,7 +48,7 @@ const handleMouseup = (event: MouseEvent) => {
 
 const formatSecToMin = (seconds: number) => {
   let minutes = Math.floor(seconds / 60)
-  let remainingSeconds = seconds % 60
+  let remainingSeconds = +(seconds % 60).toFixed(0)
   return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${
     remainingSeconds < 100 && remainingSeconds > 9 ? '' : ''
   }${remainingSeconds}`

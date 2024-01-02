@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import SongList from './SongList.vue'
-import PlayPanel from './PlayPanel.vue'
+import PlayPanel from './PlayPanel/index.vue'
 import PlayControl from './PlayControl.vue'
 </script>
 
