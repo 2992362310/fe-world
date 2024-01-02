@@ -7,6 +7,7 @@ const isPlaying = ref(false)
 const total = ref(0)
 const currentTime = ref(0)
 const curSliderEvent = ref('up')
+const curVolume = ref(20)
 
 const handlePlay = () => {
   if (audioRef.value) {
@@ -18,12 +19,15 @@ const handlePlay = () => {
 
     isPlaying.value = !isPlaying.value
 
-    total.value = Math.floor(audioRef.value?.duration)
-    currentTime.value = Math.floor(audioRef.value?.currentTime)
+    total.value = Math.floor(audioRef.value.duration)
+    currentTime.value = Math.floor(audioRef.value.currentTime)
+    curVolume.value = audioRef.value.volume * 100
+    console.log(curVolume.value)
   }
 }
 
-const handleChange = ({ value, eventType }: { value: number; eventType: string }) => {
+// 改变进度
+const handleChange1 = ({ value, eventType }: { value: number; eventType: string }) => {
   curSliderEvent.value = eventType
   currentTime.value = value
 
@@ -31,6 +35,15 @@ const handleChange = ({ value, eventType }: { value: number; eventType: string }
     audioRef.value.currentTime = value
     audioRef.value.play()
     isPlaying.value = true
+  }
+}
+
+// 改变声音 value =[0, 100]
+const handleChange2 = (value: number) => {
+  curVolume.value = value
+
+  if (typeof audioRef.value.volume === 'number') {
+    audioRef.value.volume = value / 100
   }
 }
 
@@ -45,27 +58,12 @@ const onAudioTimeUpdate = () => {
   }
 }
 
-const changeVolume = (event: WheelEvent) => {
-  // 获取滚轮的变化值
-  const deltaY = -event.deltaY
-  // 设置音量
-  if (audioRef.value) {
-    if (deltaY >= 0) {
-      audioRef.value.volume = Math.min(audioRef.value.volume + 0.1, 1)
-    } else {
-      audioRef.value.volume = Math.max(audioRef.value.volume - 0.1, 0)
-    }
-  }
-}
-
 onMounted(() => {
   audioRef.value?.addEventListener('timeupdate', onAudioTimeUpdate)
-  document.addEventListener('wheel', changeVolume)
 })
 
 onBeforeUnmount(() => {
   audioRef.value?.removeEventListener('timeupdate', onAudioTimeUpdate)
-  document.removeEventListener('wheel', changeVolume)
 })
 </script>
 
@@ -77,9 +75,9 @@ onBeforeUnmount(() => {
       <SvgIcon :name="isPlaying ? 'pause-circle' : 'play-circle'" size="24" @click="handlePlay" />
       <SvgIcon name="right-circle" size="24" />
     </div>
-    <ControlSlider :total="total" :current="currentTime" @change="handleChange" />
+    <ProcessSlider :total="total" :current="currentTime" @change="handleChange1" />
     <div class="play-btn-wrap">
-      <SvgIcon name="volume" size="24" />
+      <VolumeSlider :current="curVolume" @change="handleChange2" />
       <SvgIcon name="resume" size="28" />
       <SvgIcon name="music-list" size="32" />
     </div>

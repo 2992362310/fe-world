@@ -1,10 +1,12 @@
 import type { App, Component } from 'vue'
 import SvgIcon from './SvgIcon.vue'
-import ControlSlider from './ControlSlider.vue'
+import ProcessSlider from './ProcessSlider.vue'
+import VolumeSlider from './VolumeSlider.vue'
 
 const components: { [name: string]: Component } = {
   SvgIcon,
-  ControlSlider
+  ProcessSlider,
+  VolumeSlider
 }
 
 export default {
