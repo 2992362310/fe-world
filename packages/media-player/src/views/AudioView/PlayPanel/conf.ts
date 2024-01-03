@@ -19,7 +19,7 @@ export const PANEL_MODES: IPanleMode[] = [
     componet: defineAsyncComponent(() => import('./SongLyric.vue'))
   },
   {
-    title: '特效',
+    title: '动效',
     mode: 'effect',
     componet: defineAsyncComponent(() => import('./SongEffect.vue'))
   },

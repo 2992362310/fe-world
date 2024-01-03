@@ -29,7 +29,9 @@ const handleClick = (val: IPanleMode) => {
       </li>
     </ul>
     <main class="play-panel-main">
-      <component :is="curPanelMode?.componet" />
+      <keep-alive>
+        <component :is="curPanelMode?.componet" />
+      </keep-alive>
     </main>
   </section>
 </template>
